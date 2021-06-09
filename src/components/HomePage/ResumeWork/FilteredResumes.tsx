@@ -58,9 +58,6 @@ export const FilteredResumes: FC<IFilteredResumes> = (props) => {
         const lastIndex = currentPage * itemsPerPage;
         const firstIndex = lastIndex - itemsPerPage;
         const pages = [];
-        // console.log(firstIndex)
-        // console.log(lastIndex)
-        // console.log(props.itemList.slice(firstIndex, lastIndex))
 
         for (let i = 1; i <= Math.ceil(props.itemList.length / itemsPerPage); i++) {
             pages.push(i);

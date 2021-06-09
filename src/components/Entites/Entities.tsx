@@ -1,7 +1,8 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import styled from 'styled-components';
 
 import { TopBar } from './TopBar';
+import { Filters } from './Filters';
 import { EntitiesComponents } from './EntitiesComponents';
 
 const Wrapper = styled.div`
@@ -22,6 +23,8 @@ const Div = styled.div`
 const Title = styled.div`
 
 `;
+
+
 export const Entites: FC = () => {
     return(
         <Wrapper>

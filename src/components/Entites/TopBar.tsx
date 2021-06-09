@@ -9,6 +9,9 @@ import cog from '../media/icons/cog.svg';
 import publications from '../media/icons/publications.svg';
 import plus from '../media/icons/plus.svg';
 
+import { Filters } from './Filters';
+import { Filter } from '../Common/Filter/Filter';
+
 const Wrapper = styled.div`
 
 `;
@@ -61,8 +64,11 @@ const TopRight = styled.div`
 `;
 
 export const TopBar: FC = () => {
-    const [isFiltre, setFiltre] = useState<boolean>(false);
-    const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] = useDropdown();
+    const [filtersOpen, setFiltersOpen] = useState<boolean>(false);
+
+    const openFilters = () => {
+        setFiltersOpen(!filtersOpen);
+    }
 
     return (
         <Wrapper>
@@ -74,7 +80,7 @@ export const TopBar: FC = () => {
                 <p>All</p>
                 <img src={arrowDown} />
                 <img src={dot} />
-                <img src={plus} onClick={toggleDropdown} />
+                <img src={plus}  onClick={openFilters} />
             </TopLeft>
             <TopRight>
                 <img src={plus} />
@@ -87,6 +93,13 @@ export const TopBar: FC = () => {
                     <img src={arrowDown} />
                 </span> 
             </TopRight><br></br>
+
+            {
+                filtersOpen ?
+                <Filters />
+                :
+                null
+            }
             
         </Wrapper>
     )
